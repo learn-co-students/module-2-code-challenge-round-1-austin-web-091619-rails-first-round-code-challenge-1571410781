@@ -16,6 +16,11 @@ class HeroinesController < ApplicationController
       render :new
     end
   end
+  def search
+    power = params[:q]
+    @heroines = Heroine.all.select{|h| h.power.name == power}
+    render :index
+  end
 
   private
 
